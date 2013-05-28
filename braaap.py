@@ -71,9 +71,9 @@ if __name__ == "__main__":
       print play_cmd
       subprocess.call(play_cmd, shell=True)
     
-    if test_play_method('aplay'):
+    if test_play_method('mplayer'):
+      play('mplayer -quiet -rawaudio samplesize=1:channels=1:rate=8000:bitrate=64000 -demuxer rawaudio -')
+    elif test_play_method('aplay'):
       play('aplay')
     elif test_play_method('pacat'):
       play('pacat --format u8 --rate 8000')
-    elif test_play_method('mplayer'):
-      play('mplayer -quiet -rawaudio samplesize=1:channels=1:rate=8000:bitrate=64000 -demuxer rawaudio -')
